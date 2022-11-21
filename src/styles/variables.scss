@@ -1,0 +1,45 @@
+$red: #8b0000ff;
+$green: #006400ff;
+$yellow: #ffff00ff;
+$blue: #47b5ff;
+$white: #ffffff;
+$black: #000000;
+
+@mixin buttonStandart($width, $height, $border, $background, $color) {
+  width: $width;
+  height: $height;
+  border-radius: 50px;
+  position: static;
+  border: 1px solid $border;
+  background-color: $background;
+  color: $color;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  transition: 0.3s all ease-in;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1, 1.1);
+    transition: 0.3s all ease-out;
+  }
+  &:active {
+    transform: scale(0.9, 0.9);
+    transition: 0.1s all ease-in-out;
+  }
+}
+
+@mixin buttonMode($background, $color, $backgroundHover, $colorHover) {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 7px;
+  border-radius: 50px;
+  background-color: $background;
+  color: $color;
+  border: none;
+  transition: 0.3s all ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background-color: $backgroundHover;
+    color: $colorHover;
+    transition: 0.3s all ease-in-out;
+  }
+}

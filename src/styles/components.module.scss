@@ -1,0 +1,134 @@
+@import "./variables.scss";
+
+.popUp {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: $white;
+  z-index: 9;
+  width: 150px;
+  padding: 10px;
+
+  div {
+    h3 {
+      font-size: 0.9rem;
+      color: $blue;
+      font-weight: 500;
+    }
+    p {
+      font-size: 1.1rem;
+      color: $black;
+      font-weight: 700;
+    }
+  }
+}
+
+.sortRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  width: 120px;
+  height: 250px;
+
+  .sortButton {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 1rem;
+
+    .buttonSort {
+      @include buttonStandart(75px, 75px, $white, $blue, $white);
+      z-index: 99;
+      font-size: 1.4rem;
+      p {
+        font-size: 0;
+        transition: 0.3s all ease-in;
+      }
+      &:hover {
+        p {
+          font-size: 1rem;
+          transition: 0.3s all ease-in;
+        }
+      }
+    }
+
+    .buttonLight {
+      @include buttonMode($white, $black, $black, $white);
+    }
+    .buttonDark {
+      @include buttonMode($black, $white, $white, $black);
+    }
+  }
+
+  .sortColor {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 0.5rem;
+    margin-right: -55px;
+    height: 100%;
+    transition: all ease-in-out 0.3s;
+
+    button {
+      @include buttonStandart(50px, 50px, $white, $blue, $white);
+      transition: all ease-in-out 1s;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        &:nth-child(1) {
+          background-color: $red;
+        }
+        &:nth-child(2) {
+          background-color: $green;
+        }
+        &:nth-child(3) {
+          background-color: $yellow;
+          color: $black;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        padding: 17px;
+      }
+    }   
+
+  }
+
+  .sortColorHide {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-right: -55px;
+    margin-bottom: -1.3rem;
+    height: 0;
+    z-index: -1;
+    transition: all ease-in-out 0.5s;
+
+    button{
+      @include buttonStandart(50px, 50px, $white, $blue, $white);
+      transition: all ease-in-out 1s;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 576px) {
+  .sortRow {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
